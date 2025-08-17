@@ -1,20 +1,17 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router'
 
 const LoginScreen = () => {
-  const addUserSelecter = useSelector(state => state.auth)
-    console.log(addUserSelecter.email, addUserSelecter.password)
+  const LocalData = JSON.parse(localStorage.getItem('user'))
   const { register, handleSubmit, reset } = useForm()
 
   const submitHandler = (data) => {
-    console.log("Login Data:", data)
     comparePassword(data)
     reset()
   }
   const comparePassword = (val)=>{
-  if(val.password === addUserSelecter.password && val.email === addUserSelecter.email){
+  if(val.password === LocalData.password && val.email === LocalData.email){
     console.log("Login Success")
   }
   else return console.log("Login Failed")

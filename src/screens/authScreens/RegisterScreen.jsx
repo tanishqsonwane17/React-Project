@@ -8,8 +8,12 @@ const RegisterScreen = () => {
   const { register, handleSubmit, reset, formState:{errors} } = useForm()
   const dispatch = useDispatch()
    const submitHandler = (data) => {
+    reset()
     dispatch(addUser(data))
-    console.log(data)
+  let setToLocalStroage =   localStorage.setItem('user',JSON.stringify(data))
+  if(setToLocalStroage){
+    alert("User Added Successfully")
+  }
    }
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
