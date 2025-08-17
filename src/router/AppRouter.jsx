@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router'  // 👈 yaha
 import AuthLayout from '../Layouts/AuthLayout'
 import LoginScreen from '../screens/authScreens/LoginScreen'
 import RegisterScreen from '../screens/authScreens/RegisterScreen'
+import Home from '../screens/mainScreens/Home'
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const AppRouter = () => {
         }
       ],
     },
+    {
+      path: '/main',
+      element:<Home/>
+    }
   ])
 
   return <RouterProvider router={router} />

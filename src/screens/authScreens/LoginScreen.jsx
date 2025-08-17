@@ -1,8 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { NavLink } from 'react-router'
+import { NavLink, useNavigate } from 'react-router'
 
 const LoginScreen = () => {
+  const navigate = useNavigate()
   const LocalData = JSON.parse(localStorage.getItem('user'))
   const { register, handleSubmit, reset } = useForm()
 
@@ -13,6 +14,7 @@ const LoginScreen = () => {
   const comparePassword = (val)=>{
   if(val.password === LocalData.password && val.email === LocalData.email){
     console.log("Login Success")
+    navigate('/main')
   }
   else return console.log("Login Failed")
   }
