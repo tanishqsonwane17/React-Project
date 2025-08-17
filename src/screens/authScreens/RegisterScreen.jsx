@@ -9,7 +9,7 @@ const RegisterScreen = () => {
   const dispatch = useDispatch()
    const submitHandler = (data) => {
     dispatch(addUser(data))
-     console.log(data)
+    console.log(data)
    }
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
